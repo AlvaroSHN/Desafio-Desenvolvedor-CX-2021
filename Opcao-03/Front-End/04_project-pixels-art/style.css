@@ -1,0 +1,44 @@
+.color {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+#pixel-board{
+  width: 213px;       
+}
+
+#color-palette{
+text-align: center;
+width: 211px;
+margin-bottom: 5px;
+}
+
+.pixel {
+    border: 1px solid black;
+    display: inline-block;   
+    
+}
+
+#black {
+    border: 1px solid black;
+    background-color: black;
+}
+#red {
+    border: 1px solid black;
+    background-color: red;
+}
+#purple {
+    border: 1px solid black;
+    background-color: purple;
+}
+#green {
+    border: 1px solid black;
+    background-color: green;
+}
+
+#clear-board{
+    color: black;
+    border-color: black;
+   
+}
