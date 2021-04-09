@@ -18,7 +18,8 @@ Cabe ao candidato melhor elaborar o escopo do sistema, como:
 
 - Exemplos:
 - O filme “Star Wars” foi alugado por “João” no dia 12/08/2018.
-- O filme “Star Wars” foi renovado por “João” no dia 13/08/2018.Serviços a serem desenvolvidos:
+- O filme “Star Wars” foi renovado por “João” no dia 13/08/2018.
+Serviços a serem desenvolvidos:
 
 2.  CRUD usuário:
   * Regra 1: validar consistência dos dados, como CPF e data de nascimento.

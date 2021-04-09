@@ -1,0 +1,120 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar {
+  background-color: rgb(66, 103, 178);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  font-family: Lucida Grande, tahoma, verdana, arial, sans-serif;
+  font-size: 10px;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.top-bar label {
+  color: white;
+  padding: 2px;
+}
+
+.remember-password {
+  color: lightgray;
+  cursor: pointer;
+  font-size: 10px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.remember-password:hover {
+  color: lightgray;
+  text-decoration: underline;
+}
+
+li {
+  list-style: none;
+}
+
+.facebook-logo {
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.facebook-login {
+  display: flex;
+  margin-left: 20px;
+}
+
+.button-login-label {
+  background-color: #4267b2;
+  border: 1px solid gray;
+  border-color: #29487d;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button-login-label:hover {
+  opacity: 1;
+}
+
+.button-login {
+  background: none;
+  border-top: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 4%;
+  width: 800px;
+}
+
+.right-content {
+  width: 300px;
+}
+
+.facebook-slogan {
+  color: #0e385f;
+  font-size: 20px;
+  line-height: 29px;
+  margin-top: 40px;
+  width: 450px;
+  word-spacing: -1px;
+}
+
+.photo-grid-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  align-self: flex-end;
+}
+
+.terms-class {
+  color: #385898;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.terms-class:hover {
+  color: #385898;
+  text-decoration: underline;
+}

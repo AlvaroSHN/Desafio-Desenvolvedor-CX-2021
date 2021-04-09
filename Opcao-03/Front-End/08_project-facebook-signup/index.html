@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="libs/bulma.min.css">
+    <title>Facebook - entre ou cadastre-se</title>
+</head>
+
+
+<body>
+    <!-- HEADER -->
+    <div class="top-bar">
+        <img class="facebook-logo" width=170px src="imgs/facebook-logo.png" alt="Logomarca do facebook">
+            <form class="facebook-login" action="get">
+                <div class="form-group">
+                    <label id="user-email-phone-label">Email ou telefone</label>
+                    <input style="margin-top: 3px;" type="text" name="login" id="user-email-phone">
+                </div>
+                <div class="form-group">
+                    <label id="user-password-label">Senha</label>
+                    <input id="user-password" type="password" name="password-login" style="margin-top: 3px;" style="margin-bottom: 5px;">
+                    <li><a class="remember-password" href="https://www.facebook.com/recover/initiate?lwv=110&ars=royal_blue_bar">Esqueceu a conta?</a></li>
+                </div>
+                <div class="form-control">
+                    <label class="button-login-label" for="btn">
+                        <button id="button-login">Entrar</button>
+                    </label>
+                </div>
+            </form>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!--LEFT CONTENT-->
+        <div class="left-content">
+            <p id="facebook-slogan">O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</p>
+            <img id="facebook-networking" src="imgs/networking.png" width="500px" alt="Pessoas conectadas">
+        </div>
+        <!--RIGHT CONTENT-->
+        <div class="right-content">
+            <div class="validade-form">
+                <h1 class="title">Abra uma conta</h1>
+                <h2 class="subtitle  quick-easy">É rápido e fácil.</h2>
+                <form action="#">
+                        <div class="field" style="display:flex;">
+                            <div class="control">
+                                <input class="input" name="firstname" required="required" type=" text " placeholder="Nome">
+                            </div>
+                            <div class="control" style="padding-left: 10px;">
+                                <input class="input" name="lastname" required="required" type="text " placeholder="Sobrenome">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" required="required" name="phone_email" type="text " placeholder="Celular ou email">
+                            </div>
+                            <div class="control" style="padding-top: 15px;">
+                                <input class="input" required="required" name="password" type="password" placeholder="Nova senha">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label class="label" id="label-birthdate" style="font-size: 12px;" style="color:gray;">Data de nascimento</label>
+                                <input class="input" type="text" required="required" name="birthdate" placeholder="dd/mm/aaaa">
+                            </div>
+                        </div>
+                        <label class="label" id="label-gender" style="font-size: 12px;" style="color:gray; ">Gênero</label>
+                        <div class="field">
+                            <div class="control">
+                                <input type="radio" required="required" name="gender" id="female" value="Feminino">
+                                <label for="female" class="radio">Feminino</label>
+                                <input type="radio" required="required" name="gender" id="male" value="Masculino">
+                                <label for="male" class="radio">Masculino</label>
+                                <input type="radio" required="required" name="gender" id="other" value="Personalizado">
+                                <label for="other" class="radio">Personalizado</label>
+                            </div>
+                        </div>
+                        <div class="field" id="gender-area" style="display: none;">
+                            <select required="required" name="gender" id="genders">
+                                <option id="gender-option" selected=1 disabled=1 value="0">Selecione seu pronome</option>
+                                <option value=1>Feminino: "Deseje a ela um feliz aniversário!"</option>
+                                <option value=2>Masculino: "Deseje a ele um feliz aniversário!"</option>
+                                <option value=6>Neutro: "Deseje a ele(a) um feliz aniversário!"</option>
+                            </select>
+                            <p>O seu pronome fica visível para todos.</p>
+                            <div class="control">
+                                <input class="input" name="gender-custom" type="text" placeholder="Gênero (opcional)">
+                            </div>
+                        </div>
+                         <p style="font-size: 12px;">
+                            Ao clicar em Cadastre-se, você concorda com nossos
+                            <a class="terms-class" href="https://www.facebook.com/legal/terms/update ">Termos</a>,<br>
+                            <a class="terms-class" href="https://www.facebook.com/about/privacy/update ">Política de Dados</a> e
+                            <a class="terms-class" href="https://www.facebook.com/policies/cookies/ ">Política de Cookies</a>. Você pode receber<br>notificações por SMS e pode cancelar isso quando quiser.
+                        </p>
+                        <div class="control ">
+                            <button id="facebook-register" class="button is-success sign-button" type="submit">Cadastre-se</button>
+                            <p style="font-size: 12px;"><a href="https://www.facebook.com/pages/create/?ref_type=registration_form ">Criar uma Página</a> para uma celebridade, banda ou empresa.</p>
+                            <p id="invalid-field"></p>
+                        </div>
+                </form>
+            </div>
+        </div>
+    <script src="script.js "></script>
+</body>
+</html>
