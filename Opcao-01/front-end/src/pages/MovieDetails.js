@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import deleteMovieById from '../methods/removeMovie'
 
 function MovieDetails ({ location: {movie} }) {
   // console.log(props.location.movie)
@@ -22,9 +23,9 @@ function MovieDetails ({ location: {movie} }) {
          }}
           >EDITAR
           </Link>
-        {/* <Link className="movie-card-link" to="/" onClick={() => { movieAPI.deleteMovie(id); }}> ir no bd deletar
+        <Link className="movie-card-link" to="/" onClick={async () => { await deleteMovieById(movie); }}>
           DELETAR
-        </Link> */}
+        </Link>
       </div>
     );
   }

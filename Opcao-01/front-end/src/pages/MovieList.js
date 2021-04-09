@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MovieCard, Loading } from '../components';
-import fetchMovies from '../methods/movies'
+import fetchMovies from '../methods/getMovies'
 
 function MovieList () {
   const [movies, setMovies] = useState([]);
