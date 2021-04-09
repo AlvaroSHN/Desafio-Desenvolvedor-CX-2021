@@ -6,4 +6,11 @@ const fetchMovies = async () => {
   return apiResponse;
 };
 
+const deleteMovieById = async (id) => {
+  //falar no header que é delete
+  const apiRequest = await fetch(`${baseURL}/${id}`);
+  const apiResponse = await apiRequest.json();
+  return apiResponse;
+};
+
 export default fetchMovies;

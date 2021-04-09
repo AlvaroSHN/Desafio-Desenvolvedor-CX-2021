@@ -1,36 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
-
-class MovieDetails extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      movies: [],
-      isLoading: true,
-    };
-  }
-
-  componentDidMount() {
-    const { match } = this.props;
-    movieAPI.getMovie(match.params.id).then((myFetchMovies) => this.setState({
-      movies: myFetchMovies,
-      isLoading: false,
-    }));
-  }
-
-  render() {
+function MovieDetails ({ location: {movie} }) {
+  // console.log(props.location.movie)
     const {
       title, storyline, imagePath, genre, rating, subtitle, id,
-    } = this.state.movies;
-    const { isLoading } = this.state;
-
-    if (isLoading) return <Loading />;
-
+    } = movie;
     return (
       <div data-testid="movie-details" className="movie-card-body">
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
@@ -40,14 +16,19 @@ class MovieDetails extends Component {
         <p className="movie-card-genre">{`Genre: ${genre}`}</p>
         <p className="rating">{`Rating: ${rating}`}</p>
         <Link className="movie-card-link" to="/">VOLTAR</Link>
-        <Link className="movie-card-link" to={`/movies/${id}/edit`}>EDITAR</Link>
-        <Link className="movie-card-link" to="/" onClick={() => { movieAPI.deleteMovie(id); }}>
+        <Link className="movie-card-link" to={{
+          pathname:`/movies/${id}/edit`,
+          movie,
+         }}
+          >EDITAR
+          </Link>
+        {/* <Link className="movie-card-link" to="/" onClick={() => { movieAPI.deleteMovie(id); }}> ir no bd deletar
           DELETAR
-        </Link>
+        </Link> */}
       </div>
     );
   }
-}
+
 
 MovieDetails.propTypes = {
   match: PropTypes.shape({

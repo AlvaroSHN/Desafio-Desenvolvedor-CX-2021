@@ -6,7 +6,6 @@ import fetchMovies from '../methods/movies'
 function MovieList () {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [onSuccess, setOnSuccess] = useState(false);
 
   useEffect(() => {
     (async () => setMovies(await fetchMovies()))();
