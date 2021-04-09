@@ -1,32 +1,45 @@
 import PropTypes from 'prop-types';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import deleteMovieById from '../methods/removeMovie'
 
+
+
 function MovieDetails ({ location: {movie} }) {
-  // console.log(props.location.movie)
-    const {
-      title, storyline, imagePath, genre, rating, subtitle, id,
-    } = movie;
-    return (
-      <div data-testid="movie-details" className="movie-card-body">
-        <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
-        <p className="movie-card-title">{`Title: ${title}`}</p>
-        <p className="movie-card-subtitle">{`Subtitle: ${subtitle}`}</p>
-        <p className="movie-card-storyline">{`Storyline: ${storyline}`}</p>
-        <p className="movie-card-genre">{`Genre: ${genre}`}</p>
-        <p className="rating">{`Rating: ${rating}`}</p>
-        <Link className="movie-card-link" to="/">VOLTAR</Link>
-        <Link className="movie-card-link" to={{
-          pathname:`/movies/${id}/edit`,
-          movie,
-         }}
-          >EDITAR
-          </Link>
-        <Link className="movie-card-link" to="/" onClick={async () => { await deleteMovieById(movie); }}>
-          DELETAR
+  const [redirect, setRedirect] = useState(false)
+
+  const handleDelete = async (movie) => {
+    await deleteMovieById(movie)
+    setRedirect(true);
+  }
+  console.log(redirect)
+  if (!movie || redirect) return <Redirect to='/' />
+  const {
+    title, storyline, imagePath, genre, rating, subtitle, id,
+  } = movie;
+
+  return (
+    <div data-testid="movie-details" className="movie-card-body">
+      <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
+      <p className="movie-card-title">{`Title: ${title}`}</p>
+      <p className="movie-card-subtitle">{`Subtitle: ${subtitle}`}</p>
+      <p className="movie-card-storyline">{`Storyline: ${storyline}`}</p>
+      <p className="movie-card-genre">{`Genre: ${genre}`}</p>
+      <p className="rating">{`Rating: ${rating}`}</p>
+      <Link className="movie-card-link" to="/">VOLTAR</Link>
+      <Link className="movie-card-link" to={{
+        pathname:`/movies/${id}/edit`,
+        movie,
+        }}
+        >EDITAR
         </Link>
-      </div>
+      <button
+        className="movie-card-link"
+        onClick={() => handleDelete(movie)}
+      >
+        DELETAR
+      </button>
+    </div>
     );
   }
 

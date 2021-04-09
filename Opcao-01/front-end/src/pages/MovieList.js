@@ -6,13 +6,11 @@ import fetchMovies from '../methods/getMovies'
 function MovieList () {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     (async () => setMovies(await fetchMovies()))();
     setLoading(false)
   }, []);
     if (loading) return <Loading />;
-
     return (
       <div className="teste">
         <div data-testid="movie-list" className="movie-list">

@@ -119,6 +119,7 @@ body {
   margin-left: 50px;
   padding: 10px 15px;
   text-decoration-line: none;
+  cursor: pointer;
 }
 
 .form-button-back {
