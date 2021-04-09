@@ -12,7 +12,7 @@ function MovieDetails ({ location: {movie} }) {
     await deleteMovieById(movie)
     setRedirect(true);
   }
-  console.log(redirect)
+
   if (!movie || redirect) return <Redirect to='/' />
   const {
     title, storyline, imagePath, genre, rating, subtitle, id,
@@ -30,6 +30,7 @@ function MovieDetails ({ location: {movie} }) {
       <Link className="movie-card-link" to={{
         pathname:`/movies/${id}/edit`,
         movie,
+        salve:'po'
         }}
         >EDITAR
         </Link>
