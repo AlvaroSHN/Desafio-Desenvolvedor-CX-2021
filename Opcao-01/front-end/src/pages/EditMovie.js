@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import updateMovie from '../methods/updateMovie'
 
-import { Loading, MovieForm } from '../components';
-import * as movieAPI from '../services/movieAPI';
+import { MovieForm } from '../components';
 
 function EditMovie ({ location: {movie} }) {
 
   const handleSubmit = async (updatedMovie) => {
-    console.log(updatedMovie)
-    // const myMovie = await movieAPI.updateMovie(updatedMovie);
-    // if (myMovie === 'OK') this.setState({ shouldRedirect: true });
+    console.log('ATUALIZAR', updatedMovie) // enviar esse objeto p/ bd atualizar um filme
+    await updateMovie(updatedMovie);
+    return <Redirect to="/" />
   }
-  console.log(movie)
     return (
       <div data-testid="edit-movie" className="form-body">
-        <MovieForm movie={movie} onSubmit={handleSubmit} />
+        <MovieForm movie={movie} onSubmit={ handleSubmit } />
         <Link className="form-button-back" to={`/`}>VOLTAR</Link>
-        {/* <Link className="form-button-back" to={`/movies/${movie.id}`}>VOLTAR</Link> */}
       </div>
     );
   

@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import { Redirect } from 'react-router-dom';
+import React, {useState} from 'react';
 
-function MovieForm ({movie}) {
+function MovieForm ({ movie, onSubmit}) {
   const [newTitle, setTitle] = useState('');
   const [newSubtitle, setSubtitle] = useState('');
   const [newImagePath, setImagePath] = useState('');
@@ -9,14 +8,24 @@ function MovieForm ({movie}) {
   const [newGenre, setGenre] = useState('');
   const [newRating, setRating] = useState('');
 
-  if (!movie) return <Redirect to="/" />
-  const {title, subtitle, imagePath, storyline, rating} = movie;
-
-  const handleSubmit = () =>{
-    const updatedMovie = {
-      newTitle,newSubtitle, newImagePath, newStoryline, newGenre, newRating
+  //  tratativa erro criação filme placeholder e atualização
+  if (!movie) {
+    var movie = {
+      title: 'Forneça um titulo',
+      subtitle: 'Forneça um subtitulo',
+      imagePath: 'Informe o caminho da imagem',
+      storyline: 'Insira a sinopse',
+      rating: 'Informe o ranking'
     }
-    console.log(updatedMovie); //chamar api passando este filme
+  }
+  const {title, subtitle, imagePath, storyline, rating} = movie;
+  
+  const handleSubmit = () =>{
+    const movie = {
+      newTitle, newSubtitle, newImagePath, newStoryline, newGenre, newRating
+    }
+    if (newGenre==='') movie.newGenre='action'
+    onSubmit(movie);
   }
 
   return (

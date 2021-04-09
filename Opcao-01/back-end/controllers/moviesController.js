@@ -4,15 +4,35 @@ const { Movie } = require('../models');
 const routerMovie = Router();
 
 routerMovie.get('/', async (req, res) => {
-  // console.log('entrou no get');
   const movies = await Movie.findAll();
   res.status(200).json(movies);
 });
 
+routerMovie.post('/', async (req, res) => {
+  const {
+    newTitle: title,
+    newSubtitle: subtitle,
+    newStoryline: storyline,
+    newRating: rating,
+    newImagePath: imagePath,
+    newGenre: genre,
+    newDirector: director,
+    newQuantity: quantity,
+    newBookmarked: bookmarked,
+  } = req.body.movie;
+  console.log(title, subtitle, storyline, rating, imagePath, genre, bookmarked);
+  await Movie.create({
+    title, subtitle, storyline, rating, imagePath, genre, director, quantity, bookmarked,
+  })
+    .then(() => {
+      res.status(200).json({ message: 'criado com sucesso' });
+    })
+    .catch(() => {
+      res.status(500).send({ message: 'Algo deu errado' });
+    });
+});
+
 routerMovie.delete('/:id', async (req, res) => {
-  // console.log('entrou no delete');
-  // console.log(req.body.movie.id);
-  // console.log(req.method);
   await Movie.destroy({
     where: {
       id: req.body.movie.id,
@@ -21,8 +41,7 @@ routerMovie.delete('/:id', async (req, res) => {
     .then(() => {
       res.status(200).send({ message: 'Filme removido com sucesso' });
     })
-    .catch((err) => {
-      console.log(err.message);
+    .catch(() => {
       res.status(500).send({ message: 'Algo deu errado' });
     });
 });
