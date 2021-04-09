@@ -1,7 +1,7 @@
-const routerLogin = require('./LoginController');
-// const routerRegister = require('./RegisterController');
-// const routerProfile = require('./ClientProfileController');
+const client = require('./clientsController');
+const movie = require('./moviesController');
 
 module.exports = {
-  routerLogin,
+  client,
+  movie,
 };

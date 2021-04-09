@@ -31,11 +31,10 @@ CREATE TABLE IF NOT EXISTS rentals (
 );
 
 INSERT INTO clients (id, name, gender, cpf, birth_date) VALUES
-  ('1', 'Fulano de tal', 'masculino', '177.274.930-31', '1992/04/27'),
-  ('2', 'Fulana de tal', 'feminino', '424.464.930-17', '1990/11/04');
+  ('1', 'Fulano de tal', 'masculino', '17727493031', '1992/04/27'),
+  ('2', 'Fulana de tal', 'feminino', '42446493017', '1990/11/04');
 
-INSERT INTO movies (id, title, category, director, quantity) VALUES
+INSERT INTO movies (id, title, subtitle, director, rating, imagePath, bookmarked, quantity, genre) VALUES
 	('1','Interestelar','Aventura, Drama, Ficção Cientifica', 'Christopher Nolan', 10),
   ('2','Um Sonho de Liberdade','Drama, Ficção Policial', 'Frank Darabont ', 10),
   ('3','Batman: O Cavaleiro das Trevas','Ação, Aventura', 'Christopher Nolan', 10);
-

@@ -1,40 +1,27 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MovieCard, Loading } from '../components';
+import fetchMovies from '../methods/movies'
 
-import * as movieAPI from '../services/movieAPI';
+function MovieList () {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [onSuccess, setOnSuccess] = useState(false);
 
-class MovieList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      movies: [],
-      isLoading: true,
-    };
-  }
-
-  componentDidMount() {
-    movieAPI.getMovies().then((myFetchMovies) => this.setState({
-      movies: myFetchMovies,
-      isLoading: false,
-    }));
-  }
-
-  render() {
-    const { movies, isLoading } = this.state;
-
-    if (isLoading) return <Loading />;
+  useEffect(() => {
+    (async () => setMovies(await fetchMovies()))();
+    setLoading(false)
+  }, []);
+    if (loading) return <Loading />;
 
     return (
       <div className="teste">
         <div data-testid="movie-list" className="movie-list">
           {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
         </div>
-        <Link className="add-movie" to="/movies/new">ADICIONAR CARTÃO</Link>
+        <Link className="add-movie" to="/movies/new">ADICIONAR NOVO FILME</Link>
       </div>
     );
-  }
 }
 
 export default MovieList;
