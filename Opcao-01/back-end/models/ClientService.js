@@ -9,7 +9,7 @@ const getAll = async () => {
 
 const getByCpf = async (cpf) => {
   const [client] = await connection.execute(
-    'SELECT id, name, gender, cpf, birth_date FROM clients WHERE cpf = ?', [cpf],
+    'SELECT id, name, gender, birth_date FROM clients WHERE cpf = ?', [cpf],
   );
   return client;
 };
@@ -22,10 +22,14 @@ const getById = async (id) => {
 };
 
 const createOne = async (name, gender, cpf, birthDate) => {
+  const convertedDate = new Date(birthDate);
+  const client = await getByCpf(cpf);
+  if (client.length !== 0) return false;
   await connection.execute(
     'INSERT INTO clients (name, gender, cpf, birth_date) VALUES(?, ?, ?, ?)',
-    [name, gender, cpf, birthDate],
+    [name, gender, cpf, convertedDate],
   );
+  return true;
 };
 
 module.exports = {

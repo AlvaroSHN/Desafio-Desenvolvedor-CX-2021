@@ -1,9 +1,8 @@
 function validateCpf(cpf) {
-  const pattern = /[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}/;
-  // cpf.match(pattern);
-  console.log(cpf.match(pattern));
-  if (!cpf) return;
-  console.log('cpf validado');
+  if (!cpf) return false;
+  // const myCpf = cpf.replace(/\D/g, '');
+  const myCpf = cpf.replace(/\./g, '').replace('-', '');
+  return myCpf.length === 11;
 }
 
 module.exports = validateCpf;
