@@ -26,10 +26,6 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    bookmarked: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false,
-    },
     genre: {
       type: Sequelize.STRING,
       allowNull: false,

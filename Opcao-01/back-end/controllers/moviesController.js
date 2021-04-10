@@ -18,11 +18,10 @@ routerMovie.post('/', async (req, res) => {
     newGenre: genre,
     newDirector: director,
     newQuantity: quantity,
-    newBookmarked: bookmarked,
   } = req.body.movie;
-  console.log(title, subtitle, storyline, rating, imagePath, genre, bookmarked);
+  console.log(title, subtitle, storyline, rating, imagePath, genre);
   await Movie.create({
-    title, subtitle, storyline, rating, imagePath, genre, director, quantity, bookmarked,
+    title, subtitle, storyline, rating, imagePath, genre, director, quantity,
   })
     .then(() => {
       res.status(200).json({ message: 'criado com sucesso' });

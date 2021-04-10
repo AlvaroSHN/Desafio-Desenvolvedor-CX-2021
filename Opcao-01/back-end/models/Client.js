@@ -3,6 +3,9 @@ const Client = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     gender: DataTypes.STRING,
     cpf: DataTypes.STRING,
+    role: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
     birthDate: DataTypes.DATE,
   }, { timestamps: false });
 

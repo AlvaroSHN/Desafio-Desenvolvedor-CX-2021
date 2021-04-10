@@ -1,11 +1,18 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 function MovieCard ({ movie }) {
+  const handleClick = () => {
+    console.log('clicado!')
+    // estarei com o usuario
+    // verifica estoque
+    // adiciona filme ao usuario
+    // remove 1 do estoque
+  }
   const {
     title, imagePath, storyline, id, quantity
   } = movie;
+  // verifica se é usuario ou admin
     return (
       <div data-testid="movie-card" className="movie-card">
         <h4 className="movie-card-title">{title}</h4>
@@ -18,18 +25,13 @@ function MovieCard ({ movie }) {
         }}
           >VER DETALHES
         </Link>
+        <button 
+        onClick={() => handleClick()}
+        >
+          ALUGAR
+        </button>
       </div>
     );
   }
-
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
-  }).isRequired,
-};
 
 export default MovieCard;

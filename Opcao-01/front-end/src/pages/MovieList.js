@@ -10,15 +10,16 @@ function MovieList () {
     (async () => setMovies(await fetchMovies()))();
     setLoading(false)
   }, []);
-    if (loading) return <Loading />;
-    return (
-      <div className="teste">
-        <div data-testid="movie-list" className="movie-list">
-          {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
-        </div>
-        <Link className="add-movie" to="/movies/new">ADICIONAR NOVO FILME</Link>
+
+  if (loading) return <Loading />;
+  return (
+    <div className="teste">
+      <div data-testid="movie-list" className="movie-list">
+        {movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
-    );
+      <Link className="add-movie" to="/movies/new">ADICIONAR NOVO FILME</Link>
+    </div>
+  );
 }
 
 export default MovieList;

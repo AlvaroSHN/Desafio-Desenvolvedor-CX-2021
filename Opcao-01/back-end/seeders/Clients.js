@@ -7,6 +7,9 @@ module.exports = {
         gender: 'Male',
         cpf: '11122233344',
         birthDate: '1992/05/06',
+        role: 'adm',
+        email: 'adm@email.com',
+        password: '123456',
       },
       {
         id: 2,
@@ -14,6 +17,9 @@ module.exports = {
         gender: 'Female',
         cpf: '22233344455',
         birthDate: '2000/05/06',
+        email: 'client@email.com',
+        password: '123456',
+        role: 'client',
       },
       ], { timestamps: false });
   },

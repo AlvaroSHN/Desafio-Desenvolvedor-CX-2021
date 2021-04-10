@@ -5,7 +5,6 @@ const Movie = (sequelize, DataTypes) => {
     storyline: DataTypes.STRING,
     rating: DataTypes.INTEGER,
     imagePath: DataTypes.STRING,
-    bookmarked: DataTypes.BOOLEAN,
     genre: DataTypes.STRING,
     director: DataTypes.STRING,
     quantity: DataTypes.INTEGER,

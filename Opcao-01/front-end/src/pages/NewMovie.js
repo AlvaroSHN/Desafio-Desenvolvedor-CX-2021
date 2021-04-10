@@ -9,15 +9,14 @@ function NewMovie () {
     console.log('CRIAR', newMovie)
     newMovie.newDirector="teste";
     newMovie.newQuantity=5;
-    newMovie.newBookmarked=true;
     await addMovie(newMovie)
-    return <Redirect to="/" />
+    return <Redirect to="/movies" />
   }
 
   return (
     <div data-testid="new-movie" className="form-body">
       <MovieForm onSubmit={handleSubmit} />
-      <Link className="form-button-back" to="/">VOLTAR</Link>
+      <Link className="form-button-back" to="/movies">VOLTAR</Link>
     </div>
   );
   

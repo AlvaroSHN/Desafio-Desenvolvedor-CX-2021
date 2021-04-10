@@ -13,12 +13,24 @@ module.exports = {
     gender: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true,
+    },
+    role: {
+      type: Sequelize.STRING,
+      allowNull: false,
     },
     cpf: {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: false,
     },
     birthDate: {
       type: Sequelize.DATE,
