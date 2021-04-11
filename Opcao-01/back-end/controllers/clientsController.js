@@ -17,9 +17,8 @@ routerClient.get('/', async (_req, res) => {
   res.status(200).json(clients);
 });
 
-routerClient.post('/', validateLogin, async (req, res, next) => {
+routerClient.post('/', validateLogin, async (req, res) => {
   const { client } = req.body;
-  if (!res.locals.client) return next({ status: 404, message: 'not found' });
   const payload = {
     iss: 'Challenge01',
     aud: 'indentity',

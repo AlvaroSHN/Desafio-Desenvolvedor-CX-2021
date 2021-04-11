@@ -7,6 +7,7 @@ const validateLogin = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+  next();
 };
 
 module.exports = validateLogin;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 function MovieForm ({ movie, onSubmit}) {
   const [newTitle, setTitle] = useState('');
@@ -15,24 +15,34 @@ function MovieForm ({ movie, onSubmit}) {
     var movie = {
       title: 'Forneça um título',
       subtitle: 'Forneça um subtítulo',
-      imagePath: 'Informe o caminho da imagem',
       storyline: 'Insira a sinopse',
       rating: 'Informe uma nota',
+      imagePath: 'Informe o caminho da imagem',
       director: 'Informe nome do diretor',
       quantity: 'Informe quantidade em Estoque'
     }
   }
   const { title, subtitle, imagePath, storyline, rating, director, quantity } = movie;
+
+  useEffect(() => {
+    setTitle(title);
+    setSubtitle(subtitle);
+    setImagePath(imagePath);
+    setStoryline(storyline);
+    setRating(rating);
+    setDirector(director);
+    setQuantity(quantity);
+  }, [])
+  
   
   const handleSubmit = () =>{
     const movie = {
       title: newTitle,
       subtitle: newSubtitle,
-      imagePath: newImagePath,
       storyline: newStoryline,
       rating: newRating,
+      imagePath: newImagePath,
       genre: newGenre,
-      rating: newRating,
       director: newDirector,
       quantity: newQuantity, 
     }

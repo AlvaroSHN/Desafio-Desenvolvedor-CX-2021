@@ -1,12 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, Redirect } from 'react-router-dom';
 import { MovieForm } from '../components';
+import updateMovie from '../methods/updateMovie'
 
 function EditMovie ({ location: {movie} }) {
+
+  const handleSubmit = async (newMovie) => {
+    newMovie.id = movie.id;
+    await updateMovie(newMovie);
+    console.log('voltou do update')
+    return <Redirect to="/movies" />
+  }
+
   return (
     <div data-testid="edit-movie" className="form-body">
-      <MovieForm movie={movie}/>
+      <MovieForm onSubmit={handleSubmit} movie={movie}/>
       <Link className="form-button-back" to={`/movies`}>VOLTAR</Link>
     </div>
   );

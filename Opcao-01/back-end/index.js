@@ -11,8 +11,6 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-console.log('chegou no backed');
-
 app.use('/client', controller.client);
 app.use('/movie', controller.movie);
 app.use('/register', controller.register);

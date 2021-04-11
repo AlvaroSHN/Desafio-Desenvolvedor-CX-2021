@@ -9,10 +9,6 @@ const Client = (sequelize, DataTypes) => {
     birthDate: DataTypes.DATE,
   }, { timestamps: false });
 
-  // user.associate = (models) => {
-  //   user.hasMany(models.BlogPost, { as: 'blogPosts', foreignKey: 'userId' });
-  // };
-
   return client;
 };
 

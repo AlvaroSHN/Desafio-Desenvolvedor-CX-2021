@@ -4,14 +4,13 @@ const validatePassword = async (req, res) => {
   const { email, password } = req.body.client;
   const client = await Client.findOne({ where: { email, password } });
   if (!client) res.status(409).json({ message: 'Informações incorretas' });
+  res.locals.client = client.dataValues;
 };
 
 const validateEmail = async (req, res) => {
   const { email } = req.body.client;
   const client = await Client.findOne({ where: { email } });
   if (!client) return res.status(404).json({ message: 'Usuario não encontrado no banco, favor cadastrar' });
-  res.locals.client = client.dataValues;
-  return true;
 };
 
 const validateEmailRegister = async (req, res) => {

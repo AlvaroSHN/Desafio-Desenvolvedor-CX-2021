@@ -24,9 +24,7 @@ function Login() {
   handleChanges(email, password, setButton);
 
   if (user.role) {
-    return user.role === 'adm'
-      ? <Redirect to="/admin/movies" />
-      : <Redirect to="/movies" />;
+    return <Redirect to="/movies" />;
   }
   return (
 

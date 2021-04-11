@@ -1,23 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useHistory} from 'react-router-dom';
 import { MovieCard, Loading } from '../components';
 import fetchMovies from '../methods/getMovies'
 
 function MovieList () {
+  const [role, setRole] = useState('');
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const history = useHistory();
+
+  const isAdmin = role === 'adm' ? true : false;
+
   useEffect(() => {
     (async () => setMovies(await fetchMovies()))();
     setLoading(false)
+    const client = JSON.parse(localStorage.getItem('client'));
+    setRole(client.role)
   }, []);
-
+  
   if (loading) return <Loading />;
+
+  const handleClick = () => {
+    localStorage.clear();
+    history.push('/');
+  }
+
   return (
     <div className="teste">
       <div data-testid="movie-list" className="movie-list">
-        {movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+        {movies.map((movie) => <MovieCard isAdmin={ isAdmin }key={movie.id} movie={movie} />)}
       </div>
-      <Link className="add-movie" to="/movies/new">ADICIONAR NOVO FILME</Link>
+      {isAdmin && <Link className="add-movie" to="/movies/new">ADICIONAR NOVO FILME</Link> }
+      <button onClick={()=> handleClick()}>Sair</button>
     </div>
   );
 }

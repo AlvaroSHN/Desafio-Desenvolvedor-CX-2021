@@ -55,7 +55,7 @@ const RegisterForm = ({ state, setState, handleClick }) => {
         name="seller"
         setValue={ setIsAdm }
         checked={ isAdm }
-        label="Quero vender"
+        label="Sou um Administrador"
         type="checkbox"
       />
       <button
