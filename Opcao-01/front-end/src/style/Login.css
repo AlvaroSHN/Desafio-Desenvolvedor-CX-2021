@@ -57,6 +57,24 @@ form {
   cursor: pointer
 }
 
+/* .signin-btn {
+  background-color: #085bb4ee;
+  border: none;
+  color: white;
+  display: inline-flex;
+  float: left;
+  font-family: monospace;
+  font-size: 0.7em;
+  padding: 8px 15px;
+  text-decoration-line: none;
+  cursor: pointer
+} */
+
+.signin-btn:hover {
+  background-color: green;
+  text-decoration-line: none;
+}
+
 .signin-btn:disabled {
   background-color: rgb(170, 170, 170);
 }

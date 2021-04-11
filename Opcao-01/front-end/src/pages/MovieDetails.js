@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import deleteMovieById from '../methods/removeMovie'
 import locateMovie from '../methods/locateMovie'
+import '../style/MovieDetails.css'
 
 
 function MovieDetails ({ location: {movie, isAdmin} }) {
@@ -20,7 +21,7 @@ function MovieDetails ({ location: {movie, isAdmin} }) {
   console.log(isAdmin)
   return (
     <div data-testid="movie-details" className="movie-card-body">
-      <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
+      <div className="movie-card-image-div"><img alt="Movie Cover" className="movie-card-image" src={imagePath} /></div>
       <p className="movie-card-title">{`Título: ${title}`}</p>
       <p className="movie-card-subtitle">{`Subtítulo: ${subtitle}`}</p>
       <p className="movie-card-storyline">{`Sinopse: ${storyline}`}</p>
@@ -36,7 +37,8 @@ function MovieDetails ({ location: {movie, isAdmin} }) {
           ALUGAR
         </button>
       }
-      {isAdmin && <div> 
+      <div className="div-buttons">
+      {isAdmin && <> 
         <Link 
           className="movie-card-link" 
           to={{
@@ -52,9 +54,10 @@ function MovieDetails ({ location: {movie, isAdmin} }) {
         >
           DELETAR
          </button>
-      </div>
+      </>
       }
       <Link className="movie-card-link" to="/movies">VOLTAR</Link>
+      </div>
     </div>
     );
   }

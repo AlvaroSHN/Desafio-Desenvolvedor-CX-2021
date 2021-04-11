@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import locateMovie from '../methods/locateMovie'
+import '../style/MovieCard.css';
 
 function MovieCard ({ movie, isAdmin }) {
   const {

@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: whitesmoke;
   box-sizing: border-box;
   font-size: 16px;
@@ -165,7 +165,7 @@ body {
 }
 
 /* Referência Spinner: Luiz Simões http://luizsimoes.github.io/ */
-.spinner {
+/* .spinner {
   animation: spin 1s linear infinite;
   border: 8px solid rgba(0, 0, 0, 0.1);
   border-left-color: green;
@@ -189,7 +189,7 @@ body {
 }
 
 /* Form */
-.form-body {
+/* .form-body {
   border: 1px solid rgba(0, 0, 0, 0.125);
   padding: 20px;
   align-items: center;
@@ -246,4 +246,4 @@ body {
 .btn-submit:hover {
   background-color: green;
   text-decoration-line: none;
-}
+} */ 

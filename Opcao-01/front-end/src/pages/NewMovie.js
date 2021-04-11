@@ -7,7 +7,6 @@ function NewMovie () {
 
   const handleSubmit = async (newMovie) => {
     console.log('CRIAR', newMovie)
-    console.log(newMovie)
     await addMovie(newMovie)
     return <Redirect to="/movies" />
   }

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link , useHistory} from 'react-router-dom';
 import { MovieCard, Loading } from '../components';
 import fetchMovies from '../methods/getMovies'
+import '../style/MovieList.css';
+
 
 function MovieList () {
   const [role, setRole] = useState('');
@@ -27,12 +29,12 @@ function MovieList () {
   }
 
   return (
-    <div className="teste">
+    <div>
       <div data-testid="movie-list" className="movie-list">
         {movies.map((movie) => <MovieCard isAdmin={ isAdmin }key={movie.id} movie={movie} />)}
       </div>
       {isAdmin && <Link className="add-movie" to="/movies/new">ADICIONAR NOVO FILME</Link> }
-      <button onClick={()=> handleClick()}>Sair</button>
+      <button className="sign-out" onClick={()=> handleClick()}>Sair</button>
     </div>
   );
 }
