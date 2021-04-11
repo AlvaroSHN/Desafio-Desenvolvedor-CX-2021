@@ -1,15 +1,14 @@
-// const validatePassword = require('./validatePasswordLogin');
-// const validateEmail = require('./validateEmailLogin');
+const { validateAge, validateEmailRegister, validateCpf } = require('./validations');
 
 const validateRegister = async (req, res, next) => {
-  console.log(req, res, next);
-//   try {
-//     await validateEmail(req, res);
-//     await validatePassword(req, res);
-//     next();
-//   } catch (Err) {
-//     next(Err);
-//   }
+  try {
+    await validateAge(req, res);
+    await validateEmailRegister(req, res);
+    await validateCpf(req, res);
+    next();
+  } catch (Err) {
+    next(Err);
+  }
 };
 
 module.exports = validateRegister;

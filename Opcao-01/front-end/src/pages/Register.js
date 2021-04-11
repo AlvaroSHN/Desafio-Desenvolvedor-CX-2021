@@ -22,10 +22,14 @@ function Register() {
         name, gender, email, cpf, password, isAdm, birthDate
       }
       await RegisterSchema.validate(newClient)
-      console.log('voltou do validade:', newClient)
       const response = await register(newClient);
-      history.push('/');
-      
+      if (response && response.message ) {
+        setError(response.message);
+        if (response.message === 'Cliente cadastrado com sucesso')
+        setTimeout(() => {
+          history.push('/');
+        },1000)
+      }
     } catch (err) {
       setError(err.message)
     }

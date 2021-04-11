@@ -19,7 +19,7 @@ routerMovie.post('/', async (req, res) => {
     newDirector: director,
     newQuantity: quantity,
   } = req.body.movie;
-  console.log(title, subtitle, storyline, rating, imagePath, genre);
+
   await Movie.create({
     title, subtitle, storyline, rating, imagePath, genre, director, quantity,
   })

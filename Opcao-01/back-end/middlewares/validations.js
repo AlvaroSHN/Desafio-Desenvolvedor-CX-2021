@@ -1,12 +1,12 @@
 const { Client } = require('../models');
 
-const validatePasswordLogin = async (req, res) => {
+const validatePassword = async (req, res) => {
   const { email, password } = req.body.client;
   const client = await Client.findOne({ where: { email, password } });
   if (!client) res.status(409).json({ message: 'Informações incorretas' });
 };
 
-const validateEmailLogin = async (req, res) => {
+const validateEmail = async (req, res) => {
   const { email } = req.body.client;
   const client = await Client.findOne({ where: { email } });
   if (!client) return res.status(404).json({ message: 'Usuario não encontrado no banco, favor cadastrar' });
@@ -14,21 +14,26 @@ const validateEmailLogin = async (req, res) => {
   return true;
 };
 
-function validateCpf(cpf) {
-  if (!cpf) return false;
-  const myCpf = cpf.replace(/\./g, '').replace('-', '');
-  return myCpf.length === 11;
-}
+const validateEmailRegister = async (req, res) => {
+  const { email } = req.body.client;
+  const client = await Client.findOne({ where: { email } });
+  if (client) return res.status(409).json({ message: 'E-mail já cadastrado no banco' });
+};
 
-function validateAge(date) {
-  if (!date) return false;
-  const clientDate = new Date(date);
-  if (clientDate.toString().length === 12) return false;
+const validateCpf = async (req, res) => {
+  const { cpf } = req.body.client;
+  const client = await Client.findOne({ where: { cpf } });
+  if (client) return res.status(409).json({ message: 'CPF já cadastrado no banco' });
+};
+
+const validateAge = async (req, res) => {
+  const { birthDate } = req.body.client;
+  const clientDate = new Date(birthDate);
   const todayDate = new Date();
-  const age = todayDate - clientDate;
-  return Math.floor(age / 31557600000) >= 18;
-}
+  const age = Math.floor((todayDate - clientDate) / 31557600000);
+  if (age < 18) res.status(409).json({ message: 'Cliente deve ter mais de 18 anos' });
+};
 
 module.exports = {
-  validatePasswordLogin, validateEmailLogin, validateCpf, validateAge,
+  validatePassword, validateEmail, validateAge, validateEmailRegister, validateCpf,
 };

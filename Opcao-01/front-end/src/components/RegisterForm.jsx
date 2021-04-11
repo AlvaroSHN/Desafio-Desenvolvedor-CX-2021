@@ -7,9 +7,7 @@ const RegisterForm = ({ state, setState, handleClick }) => {
   const { name,
     email, password, gender, cpf, birthDate, isAdm, error} = state;
   const { setName, setEmail, setPassword, setIsAdm, setCpf, setGender, setBirthDate } = setState;
-  console.log(error)
   return (
-
     <section className="register-container">
       <h1>Pagina de Registro</h1>
       <InputRegister
@@ -64,7 +62,7 @@ const RegisterForm = ({ state, setState, handleClick }) => {
         className="signup-btn"
         type="button"
         data-testid="signup-btn"
-        onClick={ async () => handleClick() }
+        onClick={ async () => await handleClick() }
       >
         Cadastrar
       </button>

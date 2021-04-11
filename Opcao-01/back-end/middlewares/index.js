@@ -1,6 +1,6 @@
-const validadeRegister = require('./validateRegister');
+const validateRegister = require('./validateRegister');
 const validateLogin = require('./validateLogin');
 
 module.exports = {
-  validateLogin, validadeRegister,
+  validateLogin, validateRegister,
 };
