@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import login from '../methods/login';
 import Button from '../components/Button';
@@ -55,6 +55,9 @@ n
         >
           Ainda não tenho conta
         </Link>
+      <p className="signup-p">
+        {user.message}
+      </p>
       </form>
     </main>
   );

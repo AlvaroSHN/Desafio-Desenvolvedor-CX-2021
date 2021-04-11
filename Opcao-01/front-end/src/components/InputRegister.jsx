@@ -7,6 +7,7 @@ function InputRegister({ name, value, setValue, checked, label, type = 'text' })
       <input
         type={ type }
         name={ name }
+        required={ true }
         className={ `signup-${name}` }
         data-testid={ `signup-${name}` }
         value={ type !== 'checkbox' ? value : '' }

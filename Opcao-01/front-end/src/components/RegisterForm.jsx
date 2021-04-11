@@ -1,13 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import InputRegister from './InputRegister';
 import '../style/Register.css';
 
 const RegisterForm = ({ state, setState, handleClick }) => {
   const { name,
-    email, password, gender, cpf, birthDate, isAdm} = state;
+    email, password, gender, cpf, birthDate, isAdm, error} = state;
   const { setName, setEmail, setPassword, setIsAdm, setCpf, setGender, setBirthDate } = setState;
+  console.log(error)
   return (
 
     <section className="register-container">
@@ -60,7 +60,6 @@ const RegisterForm = ({ state, setState, handleClick }) => {
         label="Quero vender"
         type="checkbox"
       />
-      
       <button
         className="signup-btn"
         type="button"
@@ -69,6 +68,7 @@ const RegisterForm = ({ state, setState, handleClick }) => {
       >
         Cadastrar
       </button>
+      {error && <p>{error}</p>}
       <Link
         to="/"
         className="no-account-btn"

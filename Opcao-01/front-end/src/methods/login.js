@@ -13,6 +13,7 @@ const login = async (client) => {
 
   const apiRequest = await fetch(urlLogin, postMethod);
   const apiResponse = await apiRequest.json();
+  console.log(apiResponse)
   localStorage.setItem('client', JSON.stringify(apiResponse));
   return apiResponse;
 };

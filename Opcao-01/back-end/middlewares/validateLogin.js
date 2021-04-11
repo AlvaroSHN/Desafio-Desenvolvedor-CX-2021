@@ -1,13 +1,11 @@
-const validatePassword = require('./validatePassword');
-const validateEmail = require('./validateEmail');
+const { validatePasswordLogin, validateEmailLogin } = require('./validations');
 
 const validateLogin = async (req, res, next) => {
   try {
-    await validateEmail(req, res);
-    await validatePassword(req, res);
-    next();
-  } catch (Err) {
-    next(Err);
+    await validateEmailLogin(req, res);
+    await validatePasswordLogin(req, res);
+  } catch (err) {
+    next(err);
   }
 };
 

@@ -59,7 +59,15 @@ form {
 
 .signin-btn:disabled {
   background-color: rgb(170, 170, 170);
+}
 
+.signup-p {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 20px;
+  padding: 0 48px;
+  color: red;
+  
 }
 
 .no-account-btn {
