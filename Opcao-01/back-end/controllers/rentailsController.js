@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Rental } = require('../models');
+const { Client } = require('../models');
 
 const routerRentails = Router();
 
@@ -10,7 +10,7 @@ routerRentails.post('/', async (req, res) => {
     const quantity = 5;
     const rental_date = teste;
     console.log(IdCliente, IdFilme, quantity, rental_date);
-    await Rental.create({
+    await Client.create({
       clientId: IdCliente, movieId: IdFilme, quantity, rental_date,
     });
   } catch (err) {

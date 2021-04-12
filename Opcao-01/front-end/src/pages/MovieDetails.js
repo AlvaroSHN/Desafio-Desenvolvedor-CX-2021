@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import deleteMovieById from '../methods/removeMovie'
@@ -18,7 +17,7 @@ function MovieDetails ({ location: {movie, isAdmin} }) {
   const {
     title, storyline, imagePath, genre, rating, subtitle, id, director, quantity
   } = movie;
-  console.log(isAdmin)
+
   return (
     <div data-testid="movie-details" className="movie-card-body">
       <div className="movie-card-image-div"><img alt="Movie Cover" className="movie-card-image" src={imagePath} /></div>
@@ -62,12 +61,5 @@ function MovieDetails ({ location: {movie, isAdmin} }) {
     </div>
     );
   }
-
-
-MovieDetails.propTypes = {
-  match: PropTypes.shape({
-    id: PropTypes.number,
-  }).isRequired,
-};
 
 export default MovieDetails;

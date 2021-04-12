@@ -8,7 +8,6 @@ function EditMovie ({ location: {movie} }) {
   const handleSubmit = async (newMovie) => {
     newMovie.id = movie.id;
     await updateMovie(newMovie);
-    console.log('voltou do update')
     return <Redirect to="/movies" />
   }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import login from '../methods/login';
 import Button from '../components/Button';
@@ -42,7 +42,6 @@ function Login() {
           className="signin-btn"
           onClick={ async () => setUser(await login({ email, password })) }
           disabled={ buttonLogin }
-n
         >
           Entrar
         </Button>

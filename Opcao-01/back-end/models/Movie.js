@@ -11,7 +11,8 @@ const Movie = (sequelize, DataTypes) => {
   }, { timestamps: false });
 
   movie.associate = (models) => {
-    movie.hasMany(models.Rental, { as: 'movies', foreignKey: 'movieId' });
+    // movie.belongsTo(models.Client, { as: 'client', foreignKey: 'movieId' });
+    movie.hasMany(models.Client, { as: 'movies', foreignKey: 'movieId' });
   };
 
   return movie;
