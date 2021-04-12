@@ -34,6 +34,10 @@ routerClient.post('/', validateLogin, async (req, res) => {
 routerClient.get('/:id', async (req, res) => {
   const { id } = req.params;
   const client = await Client.findByPk(id);
+  // se não possui query, retorna o usuario apenas, possuindo.. retorna os filmes
+  if (!req.query.includeMovies) return res.status(200).json(client);
+  const movies = client.getMovies();
+  console.log(movies.dataValues);
   res.json(client);
 });
 

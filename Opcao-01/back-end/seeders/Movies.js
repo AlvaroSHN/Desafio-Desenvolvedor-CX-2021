@@ -61,6 +61,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.bulkDelete('Users', null, {});
+    await queryInterface.bulkDelete('Movies', null, {});
   },
 };

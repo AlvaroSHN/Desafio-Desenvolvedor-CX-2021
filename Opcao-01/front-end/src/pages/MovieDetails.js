@@ -29,6 +29,7 @@ function MovieDetails ({ location: {movie, isAdmin} }) {
       <p className="movie-card-director">{`Diretor: ${director}`}</p>
       <p className="movie-card-quantity">{`Quantidade: ${quantity}`}</p>
       <p className="rating">{`Nota: ${rating}`}</p>
+      <div className="div-buttons">
       {!isAdmin &&  
         <button
           className="locate-movie-btn"
@@ -37,7 +38,7 @@ function MovieDetails ({ location: {movie, isAdmin} }) {
           ALUGAR
         </button>
       }
-      <div className="div-buttons">
+     
       {isAdmin && <> 
         <Link 
           className="movie-card-link" 

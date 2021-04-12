@@ -110,6 +110,18 @@
   padding: 5px 10px 2px 5px;
   text-decoration-line: none;
   cursor: pointer;
+  font-size: 0.6em;
+}
+
+.locate-movie-btn {
+  background-color: #085bb4ee;
+  border-radius: 25px;
+  font-size: 0.6em;
+  color: white;
+  font-family: monospace;
+  padding: 5px 10px 2px 5px;
+  text-decoration-line: none;
+  cursor: pointer;
 }
 
 .form-button-back {
@@ -119,7 +131,7 @@
   display: inline-flex;
   float: left;
   font-family: monospace;
-  font-size: 0.7em;
+  font-size: 0.6em;
   padding: 8px 15px;
   text-decoration-line: none;
 }

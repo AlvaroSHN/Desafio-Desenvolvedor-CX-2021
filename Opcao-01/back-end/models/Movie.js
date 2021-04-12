@@ -10,6 +10,10 @@ const Movie = (sequelize, DataTypes) => {
     quantity: DataTypes.INTEGER,
   }, { timestamps: false });
 
+  movie.associate = (models) => {
+    movie.hasMany(models.Rental, { as: 'movies', foreignKey: 'movieId' });
+  };
+
   return movie;
 };
 

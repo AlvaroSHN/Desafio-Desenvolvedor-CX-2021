@@ -19,7 +19,7 @@ module.exports = {
       allowNull: false,
     },
     rating: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL(4, 2),
       allowNull: false,
     },
     imagePath: {
@@ -40,5 +40,5 @@ module.exports = {
     },
   }),
 
-  down: async (queryInterface) => queryInterface.dropTable('BlogPosts'),
+  down: async (queryInterface) => queryInterface.dropTable('Movies'),
 };
