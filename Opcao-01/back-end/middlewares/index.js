@@ -1,7 +1,6 @@
-const validateAge = require('./validateAge');
-const validateCpf = require('./validateCpf');
-const validateClient = require('./validateClient');
+const validateRegister = require('./validateRegister');
+const validateLogin = require('./validateLogin');
 
 module.exports = {
-  validateAge, validateCpf, validateClient,
+  validateLogin, validateRegister,
 };

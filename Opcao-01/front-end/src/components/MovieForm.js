@@ -1,22 +1,53 @@
 import React, {useState, useEffect} from 'react';
-import { Redirect } from 'react-router-dom';
 
-function MovieForm ({movie}) {
+function MovieForm ({ movie, onSubmit}) {
   const [newTitle, setTitle] = useState('');
   const [newSubtitle, setSubtitle] = useState('');
   const [newImagePath, setImagePath] = useState('');
   const [newStoryline, setStoryline] = useState('');
   const [newGenre, setGenre] = useState('');
   const [newRating, setRating] = useState('');
+  const [newDirector, setDirector] = useState('');
+  const [newQuantity, setQuantity] = useState('');
 
-  if (!movie) return <Redirect to="/" />
-  const {title, subtitle, imagePath, storyline, rating} = movie;
-
-  const handleSubmit = () =>{
-    const updatedMovie = {
-      newTitle,newSubtitle, newImagePath, newStoryline, newGenre, newRating
+  //  tratativa erro criação filme placeholder e atualização
+  if (!movie) {
+    var movie = {
+      title: 'Forneça um título',
+      subtitle: 'Forneça um subtítulo',
+      storyline: 'Insira a sinopse',
+      rating: 'Informe uma nota',
+      imagePath: 'Informe o caminho da imagem',
+      director: 'Informe nome do diretor',
+      quantity: 'Informe quantidade em Estoque'
     }
-    console.log(updatedMovie); //chamar api passando este filme
+  }
+  const { title, subtitle, imagePath, storyline, rating, director, quantity } = movie;
+
+  useEffect(() => {
+    setTitle(title);
+    setSubtitle(subtitle);
+    setImagePath(imagePath);
+    setStoryline(storyline);
+    setRating(rating);
+    setDirector(director);
+    setQuantity(quantity);
+  }, [])
+  
+  
+  const handleSubmit = () =>{
+    const movie = {
+      title: newTitle,
+      subtitle: newSubtitle,
+      storyline: newStoryline,
+      rating: newRating,
+      imagePath: newImagePath,
+      genre: newGenre,
+      director: newDirector,
+      quantity: newQuantity, 
+    }
+    if (newGenre==='') movie.genre='action'
+    onSubmit(movie);
   }
 
   return (
@@ -50,6 +81,17 @@ function MovieForm ({movie}) {
           type="text"
           value={newImagePath}
           onChange={(event) => setImagePath(event.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="movie_title">Diretor</label>
+        <input
+          placeholder={director}
+          id="movie_director"
+          type="text"
+          className="validate"
+          value={newDirector}
+          onChange={(event) => setDirector(event.target.value)}
         />
       </div>
       <div>
@@ -90,6 +132,21 @@ function MovieForm ({movie}) {
             max={5}
             value={newRating}
             onChange={(event) => setRating( event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="movie_quantity">
+          Quantidade
+          <input
+            placeholder={quantity}
+            id="movie_quantity"
+            className="movie_quantity, movie_rating"
+            type="number"
+            step={1}
+            min={0}
+            value={newQuantity}
+            onChange={(event) => setQuantity( event.target.value)}
           />
         </label>
       </div>

@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import locateMovie from '../methods/locateMovie'
+import '../style/MovieCard.css';
 
-function MovieCard ({ movie }) {
+function MovieCard ({ movie, isAdmin }) {
   const {
     title, imagePath, storyline, id, quantity
   } = movie;
@@ -15,21 +16,20 @@ function MovieCard ({ movie }) {
         <Link className="view-details" to={{
           pathname:`/movies/${id}`,
           movie,
+          isAdmin,
         }}
           >VER DETALHES
         </Link>
+        {!isAdmin && 
+        <button
+        className="locate-movie-btn"
+        onClick={async () => await locateMovie(movie)}
+        >
+          ALUGAR
+        </button>
+        }
       </div>
     );
   }
-
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
-  }).isRequired,
-};
 
 export default MovieCard;

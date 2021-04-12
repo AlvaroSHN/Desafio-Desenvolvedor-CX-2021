@@ -1,0 +1,33 @@
+.movie-list {
+  background-color: whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-movie {
+  background-color: #085bb4ee;
+  border-radius: 25px;
+  color: white;
+  font-family: monospace;
+  font-size: 0.8em;
+  padding: 8px 9px;
+  position: fixed;
+  text-align: center;
+  text-decoration-line: none;
+  top: 0;
+}
+
+.sign-out {
+  background-color: #085bb4ee;
+  border-radius: 25px;
+  color: white;
+  font-family: monospace;
+  
+  padding: 8px 9px;
+  position: fixed;
+  
+  text-decoration-line: none;
+  bottom: 0;
+  left: 80%;
+  margin-right: 0px
+}
